@@ -33,7 +33,7 @@ might help with the notation for mathematical expressions.
 
 #### My Answer
 
-I found the recurrence relation as 3T(n/3) + n^5, because the mystery function makes three recurence calls, dividing the input by three for each one. The remainder of the code is then a set of three nested loops, iterating through the input n^2, n, and n^2 times, for a total of n^5, or a constant value time that can be ignored in asymptotic analysis. 
+I found the recurrence relation as $3T(n/3) + n^5$, because the mystery function makes three recurence calls, dividing the input by three for each one. The remainder of the code is then a set of three nested loops, iterating through the input n^2, n, and n^2 times, for a total of n^5, or a constant value time that can be ignored in asymptotic analysis. The base case would be $T(n)=1$ for n <= 1 because the function returns, constant time, for any input less than or equal to one. 
 
 $T(n) = 1,  n <= 1$
 
@@ -41,23 +41,21 @@ $T(n) = 3T(n/3) + n^5,  n > 1$
 
 $3T(n/3) + n^5$
 
-$3(3T(n/3*3) + n^5) + n^5 = 9T(n/9) + 4n^5$
+$3(3T((n/3)/3) + (n/3)^5) + n^5$ = $9T(n/9) + 3(n/3)^5 + n^5$
 
-$3(9T(n/9*3) + 4n^5) + n^5 = 27T(n/27) + 13n^5$
+$9(3T((n/9)/3) + (n/9)^5) + 3(n/3)^5 + n^5$ = $27T(n/27) + 9(n/9)^5 + 3(n/3)^5 + n^5$
 
-$3^iT(n/3^i) + ((3^i - 1)/2)n^5$
-
+$3^iT(n/3^i) +  \sum_{k=1}^i 3^{k-1}(n/3^{k-1})^5$
 
 $n/3^i = 1$
 
 $i = log_3(n)$
 
+$nT(1) + \sum_{k=1}^{log_3(n)} 3^{k-1}(n/3^{k-1})^5$
 
-$nT(1) + ((n - 1)/2) n^5$
+$n + \sum_{k=1}^{log_3(n)} 3^{k-1}(n/3^{k-1})^5$ 
 
-$n + (n^6/2) - (n^5/2$)
-
-The fastest growing term is $n^6$, ignoring the constant 1/2, therefore the mystery function is an element of $O(n^6)$. 
+No matter how the summation is expanded, the result is various $n^5$ terms multiplied by some constants summed together. The constants are ignored during asymptotic analysis, and only the fastest growing term is selected, which would be $n^5$. Therefore the mystery function is an element of $O(n^5)$. 
 
 ### Sources and Plagiarism 
 
