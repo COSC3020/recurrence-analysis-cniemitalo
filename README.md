@@ -55,7 +55,13 @@ $nT(1) + \sum_{k=1}^{log_3(n)} 3^{k-1}(n/3^{k-1})^5$
 
 $n + \sum_{k=1}^{log_3(n)} 3^{k-1}(n/3^{k-1})^5$ 
 
-No matter how the summation is expanded, the result is various $n^5$ terms multiplied by some constants summed together. The constants are ignored during asymptotic analysis, and only the fastest growing term is selected, which would be $n^5$. Therefore the mystery function is an element of $O(n^5)$. 
+$n + n^5 + 3n^5/3^5 + 9n^5/9^5 + ... + (1/3)n(n^5/((1/3)n)^5)$ 
+
+$n + n^5 + n^5/3^4 + n^5/9^4 + ... + n^5/(1/3)^4n^4$
+
+$n + n^5 + n^5/3^4 + n^5/9^4 + ... + n/(1/3)^4$
+
+No matter how the summation is expanded, the result is various $n^5$ terms multiplied by some constants summed together. The constants are ignored during asymptotic analysis, and only the fastest growing term is selected, which would be $n^5$. This is the dominant term no matter how the summation is expanded, as the remainder terms are all either less than or equal to n^5. Therefore the mystery function is an element of $O(n^5)$. 
 
 ### Sources and Plagiarism 
 
