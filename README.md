@@ -59,7 +59,7 @@ $n + (1 - (1/(3^4))^{log_3(n)} / 1 - 1 (3^4))n^5$
 
 $n + (n^5 - n^5(1 - (1/(3^4))^{log_3(n)}))$
 
-$(n + n^5 - n) \epsilon O(n^5)$
+$(n + n^5 - n)$
 
 The constants are ignored during asymptotic analysis, and only the fastest growing term is selected, which would be $n^5$. Therefore the mystery function is an element of $O(n^5)$. 
 
